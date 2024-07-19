@@ -19,4 +19,6 @@ all_flights = all_flights.drop(columns=['DIV5_TAIL_NUM', 'DIV5_WHEELS_OFF', 'DIV
                                         'DUP','OP_CARRIER_FL_NUM','OP_UNIQUE_CARRIER','CANCELLATION_CODE',"ARR_DELAY_NEW"])
 all_airports = all_airports.drop(columns=["tbl",'Geocoded_City','tbl2pk'])
 
-print(all_airports.head())
+#Now we will convert the date time to regular pandas dates.
+all_flights['FL_DATE'] = pd.to_datetime(all_flights['FL_DATE'])
+print(all_flights.head())
